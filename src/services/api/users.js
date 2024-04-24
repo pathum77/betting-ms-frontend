@@ -22,6 +22,16 @@ export const fetchUserRole = async () => {
     return response;
 };
 
+// get user data 
+export const fetchUserData = async () => {
+    const response = await axios.get(`${CONSTANTS.BASE_URL}/users/get-user-data`, {
+        headers: {
+            Authorization: `Bearer ${store.getters.token}`
+        }
+    });
+    return response;
+};
+
 //add a manager
 export const addManager = async (data) => {
     const response = await axios.post(`${CONSTANTS.BASE_URL}/users/add-manager`, data, {
@@ -43,7 +53,7 @@ export const addAgent = async (data) => {
 };
 
 // get users 
-export const fetchUserData = async () => {
+export const fetchUsersData = async () => {
     const response = await axios.get(`${CONSTANTS.BASE_URL}/users/get-users`, {
         headers: {
             Authorization: `Bearer ${store.getters.token}`

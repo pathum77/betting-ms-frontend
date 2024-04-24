@@ -20,7 +20,7 @@ import { ref, onMounted } from 'vue';
 import loading from '@/components/common/loading-overlay-com.vue';
 import mdText from '@/components/common/titles/md-text.vue';
 import tablePrimary from '@/components/common/tables/tbl-primary.vue';
-import { fetchUserData } from '@/services/api/users';
+import { fetchUsersData } from '@/services/api/users';
 import { useNotification } from "@kyvg/vue3-notification";
 
 const { notify } = useNotification();
@@ -35,7 +35,7 @@ onMounted(() => {
 const getRegisteredUsers = async () => {
     isLoading.value = true;
     try {
-        const response = await fetchUserData();
+        const response = await fetchUsersData();
         users.value = response.data;
     } catch (error) {
         notify({

@@ -3,7 +3,7 @@
         <loading :loading="isLoading" />
         <notifications />
         <div class="px-[5px] md:px-[15px] mb-10">
-            <div class="flex items-center">
+            <div class="container pl-0 flex items-center">
                 <Icon class="w-5 h-5 mr-3" icon="material-symbols:lock" />
                 <span class="">Security</span>
             </div>
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div v-if="role === 'admin'" class="px-[5px] md:px-[15px] mb-10">
-            <div class="flex items-center">
+            <div class="container pl-0 flex items-center">
                 <Icon class="w-5 h-5 mr-3" icon="fa6-solid:gears" />
                 <span class="">Options</span>
             </div>

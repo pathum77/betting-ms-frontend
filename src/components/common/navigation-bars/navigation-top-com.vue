@@ -19,7 +19,7 @@
                         <transition name="dropdown">
                             <div ref="dropdown" v-if="isUserDropdownVisible"
                                 class="w-[120px] h-[90px] rounded-md flex flex-col justify-center items-center overflow-hidden absolute top-14 right-0 bg-fg-light dark:bg-fg-dark">
-                                <router-link to="/settings" class="w-full">
+                                <router-link @click="userDropdownOptionSelect()" to="/settings" class="w-full">
                                     <div class="w-full h-[45px] pl-5 flex items-center transition-all duration-300 ease-in-out hover:bg-bg-dark">
                                         <Icon class="w-5 h-5 mr-2 flex-shrink-0" icon="material-symbols:settings" />
                                         <p class="text-sm">Settings</p>
@@ -149,7 +149,7 @@ const themeSelect = () => {
 };
 
 const mobileNavigationHideShowTrigger = () => {
-    isNavigationMobileVisible.value = !isNavigationMobileVisible.value;
+    isNavigationMobileVisible.value = false;
 };
 
 //user dropdown's option selection trigger

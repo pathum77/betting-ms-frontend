@@ -33,8 +33,8 @@ const router = useRouter();
 
 const isLoading = ref(false);
 
-const username = ref('admin');
-const password = ref('12345678');
+const username = ref('');
+const password = ref('');
 const errors = ref({
     username: '',
     password: '',

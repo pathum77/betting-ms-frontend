@@ -2,7 +2,7 @@
     <div class="container-w-full mt-[70px]">
         <notifications />
         <loading :loading="isLoading" />
-        <div v-if="userData.firstName" class="pt-5 px-[5px] md:px-[15px] backdrop-blur-sm">
+        <div v-if="userData.First_Name" class="pt-5 px-[5px] md:px-[15px] backdrop-blur-sm">
             <div
                 class="container py-2 rounded-md shadow-sm bg-opacity-50 backdrop-blur-md bg-fg-light dark:bg-fg-dark dark:bg-opacity-50 dark:backdrop-blur-md">
                 <p class="mb-10 text-[20px] font-bold">Hi...Welcome back.</p>

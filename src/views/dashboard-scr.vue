@@ -9,9 +9,9 @@
                 <div class="flex items-center">
                     <Icon class="w-[100px] h-[100px] mr-3" icon="mingcute:user-4-fill" />
                     <div>
-                        <p class="mb-2 text-sm">{{ 'Name: ' + userData.firstName + ' ' + userData.lastName }}</p>
-                        <p class="mb-2 text-sm">{{ 'Username: ' + userData.username }}</p>
-                        <p class="text-sm">{{ 'User Role: ' + userData.role }}</p>
+                        <p class="mb-2 text-sm">{{ 'Name: ' + userData.First_Name + ' ' + userData.Last_Name }}</p>
+                        <p class="mb-2 text-sm">{{ 'Username: ' + userData.Username }}</p>
+                        <p class="text-sm">{{ 'User Role: ' + userData.Role }}</p>
                     </div>
                 </div>
             </div>

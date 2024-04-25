@@ -149,7 +149,7 @@ const themeSelect = () => {
 };
 
 const mobileNavigationHideShowTrigger = () => {
-    isNavigationMobileVisible.value = false;
+    isNavigationMobileVisible.value = !isNavigationMobileVisible.value;
 };
 
 //user dropdown's option selection trigger

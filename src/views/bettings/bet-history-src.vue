@@ -31,7 +31,13 @@
                             <td class="px-2 py-3 text-sm">{{ bet.userName }}</td>
                             <td class="px-2 py-3 text-sm">{{ bet.drawName }}</td>
                             <td class="px-2 py-3 text-sm">{{ bet.drawedDate }}</td>
-                            <td v-for="(betData, index) in bet.bets" :key="index" class="px-2 py-3 text-sm">{{ betData.numbers }} # {{ betData.amount }}</td>
+                            <td v-for="(betData, index) in bet.bets" :key="index" class="px-2 py-3 text-sm flex flex-col">
+                                <div class="flex gap-1">
+                                    <p>{{ betData.numbers }}</p>
+                                    <p>#</p>
+                                    <p>{{ betData.amount }}</p>
+                                </div>
+                            </td>
                         </tr>
                     </table>
                 </div>

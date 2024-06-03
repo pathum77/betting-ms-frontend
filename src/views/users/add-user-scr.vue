@@ -16,6 +16,11 @@
                     <labelSelect :id="'user_role'" :label="'User Role'" :value="userData.role" :options="userRoles"
                         :extra-option="{ name: 'Select an option', value: '', isVisible: true }" :error="errors.role"
                         @input-field-value-changed="userRoleValueChanged" />
+                    <labelText :id="'creditLimit'" :label="`Credit Limit (${CONSTANTS.CURRECNCY_TYPE})`" :value="userData.creditLimit" :placeholder="'10000'"
+                        :error="errors.creditLimit" @input-field-value-changed="creditLimitValueChanged" />
+                </div>
+                <div class="hr"></div>
+                <div class="form-grid-res">
                     <labelText :id="'username'" :label="'Username'" :value="userData.role" :placeholder="'johnporter'"
                         :error="errors.username" @input-field-value-changed="usernameValueChanged" />
                     <labelText :id="'password'" :label="'Password'" :value="userData.password"
@@ -44,6 +49,7 @@ import loading from '@/components/common/loading-overlay-com.vue';
 import store from '@/store/index';
 import { addManager, addAgent } from '@/services/api/users';
 import { useNotification } from "@kyvg/vue3-notification";
+import { CONSTANTS } from '@/utils/constants';
 
 const { notify } = useNotification();
 
@@ -52,6 +58,7 @@ const userData = ref({
     firstName: '',
     lastName: '',
     role: '',
+    creditLimit: '',
     username: '',
     password: '',
     passwordRepeat: ''
@@ -60,6 +67,7 @@ const errors = ref({
     firstName: '',
     lastName: '',
     role: '',
+    creditLimit: '',
     username: '',
     password: '',
     passwordRepeat: ''
@@ -101,6 +109,11 @@ const userRoleValueChanged = (val) => {
     errors.value.role = '';
 };
 
+const creditLimitValueChanged = (val) => {
+    userData.value.creditLimit = val;
+    errors.value.creditLimit = '';
+};
+
 const usernameValueChanged = (val) => {
     userData.value.username = val;
     errors.value.username = '';
@@ -135,6 +148,14 @@ const validation = () => {
         errors.value.role = 'Invalid user role!.';
     } else {
         errors.value.lastName = '';
+    }
+
+    if (userData.value.creditLimit === '') {
+        errors.value.creditLimit = 'Credit limit is required!';
+    } else if(/[^0-9]/.test(userData.value.creditLimit)) {
+        errors.value.creditLimit = 'Invalid credit limit!';
+    } else {
+        errors.value.creditLimit = '';
     }
 
     if (userData.value.username === '') {

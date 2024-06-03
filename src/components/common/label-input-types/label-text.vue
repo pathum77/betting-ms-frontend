@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps, defineEmits } from 'vue';
+import { ref, defineProps, defineEmits, watch } from 'vue';
 import { Icon } from '@iconify/vue';
 
 const props = defineProps({
@@ -60,7 +60,13 @@ const props = defineProps({
     },
 });
 
-let inputValue = ref(props.value);
+let inputValue = ref('');
+
+watch(() => props.value, (val) => {
+    if (val === '') {
+        inputValue.value = val;
+    }
+});
 
 const emits = defineEmits(['inputFieldValueChanged', 'iconClick']);
 

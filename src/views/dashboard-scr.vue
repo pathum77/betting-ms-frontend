@@ -14,6 +14,12 @@
                         <p class="text-sm">{{ 'User Role: ' + userData.Role }}</p>
                     </div>
                 </div>
+                <div class="mt-5 flex justify-end">
+                    <div @click="copyLinkToClipboard()" class="flex items-center cursor-pointer hover:text-blue-500">
+                        <p class="text-sm">{{ webLink }}</p>
+                        <Icon class="w-4 h-4 ml-2" icon="material-symbols:content-copy" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -30,6 +36,7 @@ const { notify } = useNotification();
 
 const isLoading = ref(false);
 const userData = ref({});
+const webLink = ref('https://betting-ms-frontend.vercel.app');
 
 onMounted(() => {
     getUserData();
@@ -48,6 +55,24 @@ const getUserData = async () => {
         });
     }
     isLoading.value = false;
+};
+
+const copyLinkToClipboard = () => {
+    navigator.clipboard.writeText(webLink.value)
+        .then(() => {
+            notify({
+                type: "success",
+                title: "Success",
+                text: "Text copied to clipboard",
+            });
+        })
+        .catch(() => {
+            notify({
+                type: "error",
+                title: "Error!",
+                text: "Failed to copy text",
+            });
+        });
 };
 
 </script>
